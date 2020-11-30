@@ -1,0 +1,55 @@
+{% extends "modbustemplate.html" %}
+{% block conteudo %}
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card card-primary">
+          <div class="card-header">
+            <h3 class="card-title">Valores CLP</h3>
+          </div>
+          <form action="{{ url_for('modbus') }}" method="POST">
+            <div class="card-body">
+              <div class="form-group">
+                <label>Receita Selecionada</label>
+                <input type="text" class="form-control" name="recipe" value="{{ recipe }}">
+              </div>
+              <div class="form-group">
+                <label>Batelada</label>
+                <input type="text" class="form-control" name="batch" value="{{ batch }}">
+              </div>
+              <div class="form-group">
+                <label>Peso dos Sólidos</label>
+                <input type="text" class="form-control" name="solid" value="{{ solid }}">
+              </div>
+              <div class="form-group">
+                <label>Porcentagem da Dosagem 1</label>
+                <input type="text" class="form-control" name="dosage1" value="{{ dosage1 }}">
+              </div>
+              <div class="form-group">
+                <label>Porcentagem da Dosagem 2</label>
+                <input type="text" class="form-control" name="dosage2" value="{{ dosage2 }}">
+              </div>
+              <div class="form-group">
+                <label>Porcentagem de Pó</label>
+                <input type="text" class="form-control" name="powder" value="{{ powder }}">
+              </div>
+              <div class="form-group">
+                <label>Tempo da Mistura</label>
+                <input type="text" class="form-control" name="blendtime" value="{{ blendtime }}">
+              </div>
+              <div class="form-group">
+                <label>Status de Conexão</label>
+                <input type="text" class="form-control" name="connectionstatus" value="{{ connectionstatus }}">
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Ler Dados</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

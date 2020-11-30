@@ -1,0 +1,69 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+      <div class="row mb-2">
+          <div class="col-sm-6">
+              <h1 class="m-0 text-dark">{{ titlePage }}</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <div class="float-sm-right">
+              <a href="/nova-receita" class="btn btn-success btn-sm"> <i class="fas fa-plus"></i> Nova Receita</a>          
+            </div>
+          </div><!-- /.col -->
+      </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+
+<div class="card">
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="width: 10px">#ID</th>
+            <th>Código da Receita</th>
+            <th>Nome da Receita</th>
+            <th>Peso do Sólido</th>
+            <th>Peso do Líquido 1</th>
+            <th>Peso do Líquido 2</th>
+            <th>Peso do Pó</th>
+            <th>Tempo de Mistura</th>     
+            <th></th>       
+          </tr>
+        </thead>
+        <tbody>
+          {% for recipe in recipes %}
+              <tr>
+                  <td>{{ recipe[0] }}</td>
+                  <td>{{ recipe[1] }}</td>
+                  <td>{{ recipe[2] }}</td>
+                  <td>{{ recipe[3] }}</td>
+                  <td>{{ recipe[4] }}</td>
+                  <td>{{ recipe[5] }}</td>
+                  <td>{{ recipe[6] }}</td>
+                  <td>{{ recipe[7] }}</td>
+                  <td class="project-actions text-right">
+                    <a class="btn btn-primary btn-sm" href="{{ url_for('send_ihm', id=recipe[0]) }}">
+                      <i class="fas fa-folder"></i> Enviar para IHM
+                    </a>
+                    <a class="btn btn-info btn-sm" href="{{ url_for('edit_recipe', id=recipe[0]) }}">
+                      <i class="fas fa-pencil-alt"></i> Editar
+                    </a>
+                    <a class="btn btn-danger btn-sm" href="{{ url_for('delete_recipe', id=recipe[0]) }}">
+                      <i class="fas fa-trash"></i> Deletar
+                    </a>
+                </td>
+              </tr>
+          {% endfor %}
+          
+        </tbody>
+      </table>
+    </div>
+    <!-- /.card-body -->
+  </div>
+  <!-- /.card -->
+{% endblock %}

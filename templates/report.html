@@ -1,0 +1,68 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1 class="m-0 text-dark">{{ titlePage }}</h1>
+            </div><!-- /.col -->            
+        </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+</div>
+  <!-- /.content-header -->
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">            
+            <!-- /.card-header -->
+            <div class="card-body">
+                <table id="batchTable" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Código da Receita</th>
+                            <th>Nome da Receita</th>
+                            <th>Peso do Sólido</th>
+                            <th>Peso do Líquido 1</th>
+                            <th>Peso do Líquido 2</th>
+                            <th>Peso do Pó</th>
+                            <th>Tempo de Mistura</th>     
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for batch in batchs %}
+                        <tr>                            
+                            <td>{{ batch[1] }}</td>
+                            <td>{{ batch[2] }}</td>
+                            <td>{{ batch[3] }}</td>
+                            <td>{{ batch[4] }}</td>
+                            <td>{{ batch[5] }}</td>  
+                            <td>{{ batch[6] }}</td>
+                            <td>{{ batch[7] }}</td>
+                            <td>{{ batch[8] }}</td>                    
+                        </tr>   
+                    {% endfor %}             
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Data</th>
+                            <th>Código da Receita</th>
+                            <th>Nome da Receita</th>
+                            <th>Peso do Sólido</th>
+                            <th>Peso do Líquido 1</th>
+                            <th>Peso do Líquido 2</th>
+                            <th>Peso do Pó</th>
+                            <th>Tempo de Mistura</th>     
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>        
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

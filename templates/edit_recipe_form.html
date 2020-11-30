@@ -1,0 +1,102 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+<!-- Content Header (Page header) -->
+<div class="content-header">
+  <div class="container-fluid">
+      <div class="row mb-2">
+          <div class="col-sm-6">
+              <h1 class="m-0 text-dark">{{ titlePage }}</h1>
+          </div><!-- /.col -->          
+      </div><!-- /.row -->
+  </div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+  
+<div class="row">
+  <!-- right column -->
+    <div class="col-md-6">
+      <!-- general form elements disabled -->
+      <div class="card card-warning">        
+        <!-- /.card-header -->
+        <div class="card-body">
+          <!--  onsubmit="return validateForm()" -->
+          <form action="{{ url_for('update_recipe') }}" method="POST">
+            <fieldset>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>ID *</label> 
+                    <input type="text" class="form-control"  value="{{ recipe.id }}" disabled>                   
+                    <input type="hidden" name="id" value="{{ recipe.id }}">
+                  </div>
+                </div>   
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Código da Receita *</label>
+                    <input type="text" class="form-control" placeholder="Digite o Código" value="{{ recipe.recipe_cod }}"  id="recipe_cod" name="recipe_cod" required>
+                  </div>
+                </div>            
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Nome da Receita *</label>
+                    <input type="text" class="form-control" placeholder="Digite o Nome" value="{{ recipe.recipe_name }}"  id="recipe_name" name="recipe_name" required>
+                  </div>
+                </div>   
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Peso do Sólido *</label>
+                    <input type="text" class="form-control" placeholder="Digite o Peso" value="{{ recipe.solid }}"  id="solid" name="solid" required>
+                  </div>
+                </div>            
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- text input -->
+                  <div class="form-group">
+                    <label>Peso do Líquido 1 *</label>
+                    <input type="text" class="form-control" placeholder="Digite o Peso"  value="{{ recipe.liquid1 }}" id="liquid1" name="liquid1" required>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Peso do Líquido 2 *</label>
+                    <input type="text" class="form-control" placeholder="Digite o Peso" value="{{ recipe.liquid2 }}" id="liquid2" name="liquid2" required>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- textarea -->
+                  <div class="form-group">
+                    <label>Peso do Pó *</label>
+                    <input type="text" class="form-control" placeholder="Digite o Peso" value="{{ recipe.powder }}" id="powder" name="powder" required>                
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label>Tempo de Mixagem *</label>
+                    <input type="text" class="form-control" placeholder="Digite a quantidade" value="{{ recipe.blend_time }}" id="blend_time" name="blend_time"  required>                  
+                  </div>
+                </div>
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary" >Atualizar</button>
+                <a class="btn btn-danger" href="{{ url_for('list_recipes') }}">Voltar</a>
+              </div>                                          
+            </fieldset>
+          </form>
+        </div>
+        <!-- /.card-body -->
+      </div>
+    </div>
+  </div>      
+  <!-- /.row -->
+  {% endblock %}
+
