@@ -151,12 +151,12 @@ function donut_chart()
       color: '#0073b7'
     },
     {
-      label: 'Dosagem 1',
+      label: 'Liquido 1',
       data : 50,
       color: '#00c0e0'
     },
     {
-      label: 'Dosagem 2',
+      label: 'Liquido 2',
       data : 20,
       color: '#00c0eg'
     }
